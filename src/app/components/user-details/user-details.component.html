@@ -1,0 +1,53 @@
+<div class="sidebar-container">
+  <mat-drawer-container
+    class="sidebar"
+    [hasBackdrop]="false"
+    [autofocus]="false"
+    (backdropClick)="drawer.close()"
+  >
+    <mat-drawer #drawer mode="over" position="end" class="drawer">
+      <div class="close-menu">
+        <button mat-flat-button color="primary" (click)="drawer.close()">
+          Close
+        </button>
+      </div>
+      <mat-list>
+        <mat-list-item class="list-header">
+          <span class="mat-h2">Detalhes do usuário</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <span class="mat-h2">Nome:</span>
+          <span class="mat-h3"> {{ user.name }}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <span class="mat-h2">Email:</span>
+          <span class="mat-h3"> {{ user.email }}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <span class="mat-h2">Telefone:</span>
+          <span class="mat-h3"> {{ user.phone }}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <span class="mat-h2">Endereço:</span>
+          <span class="mat-h3"> {{ user.address }}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <span class="mat-h2">Status:</span>
+          <span class="mat-h3"> {{ user.status?.online }}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-drawer>
+
+    <mat-drawer-content>
+      <button mat-flat-button color="primary" (click)="drawer.toggle()">
+        Toggle drawer
+      </button>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
