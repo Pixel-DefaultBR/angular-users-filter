@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { IUser } from '../../interface/user/user.interface';
 import { UsersList } from '../../data/users-list';
 
@@ -12,7 +12,11 @@ export class UsersTableComponent {
   displayedColumns: string[] = ['name', 'date', 'status'];
   dataSource: IUser[] = UsersList;
 
-  onUserSelected(user: IUser) {
-    console.log(user);
+  @Output() userSelectedEmit = new EventEmitter<IUser>();
+  @Output() openDrawerEmit = new EventEmitter<void>();
+
+  onUserSelected(user: IUser, event: Event) {
+    this.userSelectedEmit.emit(user);
+    this.openDrawerEmit.emit();
   }
 }

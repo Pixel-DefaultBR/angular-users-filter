@@ -4,10 +4,10 @@
             <app-filter></app-filter>
         </div>
         <div class="main-left">
-            <app-users-table></app-users-table>
+            <app-users-table (userSelectedEmit)="onUserSelected($event)" (openDrawerEmit)="userDetails.toggleDrawer()"></app-users-table>
         </div>
     </div>
     <div class="right-container">
-        <app-user-details [user]="userSelected"></app-user-details>
+        <app-user-details #userDetails [user]="userSelected"></app-user-details>
     </div>
 </div>

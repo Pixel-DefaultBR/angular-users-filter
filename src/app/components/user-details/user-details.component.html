@@ -8,7 +8,7 @@
     <mat-drawer #drawer mode="over" position="end" class="drawer">
       <div class="close-menu">
         <button mat-flat-button color="primary" (click)="drawer.close()">
-          Close
+          Fechar
         </button>
       </div>
       <mat-list>
@@ -28,7 +28,7 @@
         <mat-divider></mat-divider>
         <mat-list-item>
           <span class="mat-h2">Telefone:</span>
-          <span class="mat-h3"> {{ user.phone }}</span>
+          <span class="mat-h3"> {{ user.phone | phone }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
@@ -38,16 +38,10 @@
         <mat-divider></mat-divider>
         <mat-list-item>
           <span class="mat-h2">Status:</span>
-          <span class="mat-h3"> {{ user.status?.online }}</span>
+          <span class="mat-h3"> {{ (user.status?.online || false) | status }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
       </mat-list>
     </mat-drawer>
-
-    <mat-drawer-content>
-      <button mat-flat-button color="primary" (click)="drawer.toggle()">
-        Toggle drawer
-      </button>
-    </mat-drawer-content>
   </mat-drawer-container>
 </div>

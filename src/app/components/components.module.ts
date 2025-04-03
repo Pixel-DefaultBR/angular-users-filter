@@ -4,6 +4,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { FilterComponent } from './filter/filter.component';
 import {MAT_DATE_LOCALE, MatNativeDateModule } from "@angular/material/core";
 import { UsersTableComponent } from './users-table/users-table.component';
+import { PipesModule } from "../pipes/pipes.module";
 
 @NgModule({
     declarations: [
@@ -14,6 +15,7 @@ import { UsersTableComponent } from './users-table/users-table.component';
     imports: [
         AngularMaterialModule,
         MatNativeDateModule,
+        PipesModule
     ],
     providers: [{
         provide: MAT_DATE_LOCALE, useValue: 'en-US',
@@ -21,7 +23,8 @@ import { UsersTableComponent } from './users-table/users-table.component';
     exports: [
         UserDetailsComponent,
         FilterComponent,
-        UsersTableComponent
+        UsersTableComponent,
+        PipesModule
     ],
 })
 export class ComponentsModule {
